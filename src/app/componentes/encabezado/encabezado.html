@@ -1,0 +1,44 @@
+<header class="navbar">
+  <div class="navbar-container">
+    <!-- Logo/Marca -->
+    <a routerLink="/" class="navbar-brand">
+      
+      <span class="brand-text">Mi Tienda</span>
+    </a>
+
+    <!-- Navegación Principal -->
+    <nav class="navbar-nav" aria-label="Principal">
+      <a routerLink="/" 
+         routerLinkActive="active" 
+         [routerLinkActiveOptions]="{ exact: true }"
+         class="nav-link">
+        <span>Inicio</span>
+      </a>
+      <a routerLink="/catalogo" 
+         routerLinkActive="active"
+         class="nav-link">
+        <span>Catálogo</span>
+      </a>
+      <a routerLink="/pagos" 
+         routerLinkActive="active"
+         class="nav-link">
+        <span>Pagos</span>
+      </a>
+    </nav>
+
+    <!-- Carrito (derecha) -->
+    <div class="navbar-actions">
+      <a routerLink="/carrito" 
+         routerLinkActive="active"
+         class="nav-link cart-link">
+        <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <span class="cart-text">Carrito</span>
+        <span class="cart-badge" *ngIf="tienda.cantidad() > 0">{{ tienda.cantidad() }}</span>
+      </a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,317 @@
+/* ========================================
+   NAVBAR - Estilos Profesionales
+   ======================================== */
+
+:host {
+  display: block;
+  --primary-color: #1a1a1a;
+  --secondary-color: #ffffff;
+  --accent-color: #3b82f6;
+  --hover-color: #0066cc;
+  --border-color: #e5e7eb;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  background-color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  gap: 30px;
+}
+
+/* ========== LOGO/MARCA ========== */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--secondary-color);
+  transition: opacity 0.3s ease;
+  flex-shrink: 0;
+}
+
+.navbar-brand:hover {
+  opacity: 0.8;
+}
+
+.navbar-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--accent-color);
+  stroke-width: 2;
+}
+
+.brand-text {
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--accent-color), #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========== NAVEGACIÓN PRINCIPAL ========== */
+
+.navbar-nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex: 1;
+}
+
+.nav-link {
+  position: relative;
+  padding: 10px 16px;
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--accent-color);
+}
+
+.nav-link.active {
+  color: var(--accent-color);
+  background-color: rgba(59, 130, 246, 0.15);
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 2px 2px 0 0;
+}
+
+/* ========== ACCIONES (CARRITO) ========== */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+.cart-link {
+  position: relative;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.cart-link:hover {
+  background-color: rgba(59, 130, 246, 0.2);
+  border-color: var(--accent-color);
+}
+
+.cart-link.active {
+  border-color: var(--accent-color);
+  background-color: rgba(59, 130, 246, 0.15);
+}
+
+.cart-icon {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
+}
+
+.cart-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background-color: #ef4444;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 15px;
+    height: 65px;
+    gap: 15px;
+  }
+
+  .navbar-nav {
+    gap: 5px;
+  }
+
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .navbar-brand {
+    gap: 8px;
+  }
+
+  .navbar-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .brand-text {
+    font-size: 18px;
+  }
+
+  .cart-text {
+    display: none;
+  }
+
+  .cart-link {
+    padding: 8px 12px;
+  }
+
+  .cart-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .cart-badge {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  .nav-link.active::after {
+    width: 30%;
+    height: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    height: 60px;
+    padding: 0 12px;
+  }
+
+  .navbar-brand {
+    gap: 6px;
+  }
+
+  .navbar-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .brand-text {
+    font-size: 16px;
+  }
+
+  .navbar-nav {
+    gap: 3px;
+  }
+
+  .nav-link {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .cart-link {
+    padding: 6px 10px;
+  }
+
+  .cart-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ========== TEMAS ALTERNATIVOS ========== */
+
+/* Tema Claro (opcional) */
+:host.light-theme {
+  --primary-color: #ffffff;
+  --secondary-color: #1a1a1a;
+  --accent-color: #0066cc;
+  --border-color: #f0f0f0;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+:host.light-theme .navbar-brand:hover {
+  opacity: 0.7;
+}
+
+/* ========== ANIMACIONES ========== */
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.navbar {
+  animation: slideDown 0.4s ease-out;
+}
+
+/* Efecto de ripple en enlaces */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(59, 130, 246, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.nav-link:active::before {
+  width: 100px;
+  height: 100px;
+}

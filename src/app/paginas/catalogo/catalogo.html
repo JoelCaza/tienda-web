@@ -1,0 +1,15 @@
+
+<section class="pagina">
+  <h1>Catálogo de productos</h1>
+
+  <div class="grilla">
+    @for (p of tienda.productos(); track p.id) {
+      <app-tarjeta-product [producto]="p" (agregar)="tienda.agregar($event)" />
+    } @empty {
+      <p>Todavía no hay productos.</p>
+    }
+  </div>
+</section>
+
+
+<button routerLink="/" >Ir al inicio</button>

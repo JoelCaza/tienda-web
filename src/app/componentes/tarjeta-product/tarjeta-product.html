@@ -1,0 +1,63 @@
+<article class="product-card">
+  <!-- Imagen del Producto -->
+  <div class="product-image-container">
+    <img 
+      [src]="producto().imagen" 
+      [alt]="'Foto de ' + producto().nombre" 
+      class="product-image"
+      loading="lazy"
+    />
+    
+    <!-- Overlay de Categoría -->
+    <span class="product-category">{{ producto().categoria }}</span>
+    
+    <!-- Badge de Stock -->
+    @if (producto().stock === 0) {
+      <div class="out-of-stock-overlay">
+        <span class="out-of-stock-text">AGOTADO</span>
+      </div>
+    } @else if (producto().stock < 5) {
+      <div class="low-stock-badge">
+        Solo {{ producto().stock }} disponibles
+      </div>
+    }
+  </div>
+
+  <!-- Contenido de la Tarjeta -->
+  <div class="product-content">
+    <!-- Título -->
+    <h3 class="product-title">
+      <a [routerLink]="['/producto', producto().id]">
+        {{ producto().nombre }}
+      </a>
+    </h3>
+
+    <!-- Precio -->
+    <div class="product-pricing">
+      <p class="product-price">{{ producto().precio | currency: 'USD' }}</p>
+      @if (producto().stock > 0) {
+        <span class="in-stock">En stock</span>
+      }
+    </div>
+
+    <!-- Botón de Agregar -->
+    <button 
+      type="button" 
+      class="btn-add-cart"
+      [disabled]="producto().stock === 0"
+      (click)="agregar.emit(producto())"
+    >
+      <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+      </svg>
+      <span>Agregar al carrito</span>
+    </button>
+
+    <!-- Link Ver Detalles -->
+    <a [routerLink]="['/producto', producto().id]" class="btn-view-details">
+      Ver detalles
+    </a>
+  </div>
+</article>
